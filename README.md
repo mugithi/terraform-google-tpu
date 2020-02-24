@@ -12,11 +12,13 @@ Basic usage of this module is as follows:
 
 ```hcl
 module "tpu" {
-  source  = "terraform-google-modules/tpu/google"
-  version = "~> 0.1"
-
-  project_id  = "<PROJECT ID>"
-  bucket_name = "gcs-test-bucket"
+  source           = "github.com/mugithi/terraform-google-tpu"
+  project_id       = "network-host-project-243718"
+  zone             = "europe-west4-a"
+  tpu_name         = "tpu_name_001"
+  accelerator_type = "v3-8"
+  network          = "default"
+  preemptible      = true
 }
 ```
 
@@ -28,14 +30,24 @@ Functional examples are included in the
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| bucket\_name | The name of the bucket to create | string | n/a | yes |
-| project\_id | The project ID to deploy to | string | n/a | yes |
+| accelerator\_type | The type of hardware accelerators associated with this node. | string | `"v3-8"` | no |
+| cidr\_block | The CIDR block that the TPU node will use when selecting an IP address. This CIDR block must be a /29 block; the Compute Engine networks API forbids a smaller block, and using a larger block would be wasteful (a node can only consume one IP address). Errors will occur if the CIDR block has already been used for a currently existing TPU node, the CIDR block conflicts with any subnetworks in the user's provided network, or the provided network is peered with another network that is using that CIDR block. | string | `"10.3.0.0/29"` | no |
+| network | The name of a network to peer the TPU node to. It must be a preexisting Compute Engine network inside of the project on which this API has been activated. If none is provided, default will be used. | string | `"default"` | no |
+| preemptible | Sets the scheduling options for this TPU instance | string | `"true"` | no |
+| project\_id | The ID of the project in which the resource belongs | string | n/a | yes |
+| pytorch\_version | The version of Tensorflow or Pytorch running in the Node. You can use data.google_tpu_tensorflow_versions.available.versions[0] to pick latest version of Tensorflow | string | `"pytorch-nightly"` | no |
+| tpu\_name | The immutable name of the TPU. | string | n/a | yes |
+| zone | The GCP location for the TPU. | string | `"europe-west4-a"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| bucket\_name |  |
+| id |  |
+| network\_endpoints |  |
+| tensorflow\_versions |  |
+| tpu\_all\_parameters |  |
+| tpu\_service\_account |  |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -55,7 +67,7 @@ The following dependencies must be available:
 A service account with the following roles must be used to provision
 the resources of this module:
 
-- Storage Admin: `roles/storage.admin`
+- Storage Admin: `roles/tpu.admin`
 
 The [Project Factory module][project-factory-module] and the
 [IAM module][iam-module] may be used in combination to provision a
@@ -66,7 +78,7 @@ service account with the necessary roles applied.
 A project with the following APIs enabled must be used to host the
 resources of this module:
 
-- Google Cloud Storage JSON API: `storage-api.googleapis.com`
+- Google Cloud TPU API: `tpu.googleapis.com`
 
 The [Project Factory module][project-factory-module] can be used to
 provision a project with the necessary APIs enabled.

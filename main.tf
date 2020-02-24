@@ -19,15 +19,15 @@ data "google_tpu_tensorflow_versions" "available" {
 }
 
 resource "google_tpu_node" "tpu" {
-  name = var.tpu_name
-  zone = var.zone
+  name    = var.tpu_name
+  zone    = var.zone
   project = var.project_id
 
   accelerator_type = var.accelerator_type
 
   cidr_block         = var.cidr_block
   tensorflow_version = var.pytorch_version
-  network = var.network
+  network            = var.network
 
 
   scheduling_config {
