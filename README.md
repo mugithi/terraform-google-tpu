@@ -43,11 +43,11 @@ Functional examples are included in the
 
 | Name | Description |
 |------|-------------|
-| id |  |
+| id | GCP ID of the Cloud TPU POD resource |
 | network\_endpoints |  |
-| tensorflow\_versions |  |
-| tpu\_all\_parameters |  |
-| tpu\_service\_account |  |
+| tensorflow\_versions | All values of PyTorch and Tensorflow versions avaiable to accelerators |
+| tpu\_all\_parameters | All the parameters avaiable in the TPU POD resource |
+| tpu\_service\_account | The service account used to run the tensor flow services within the node. To share resources, including Google Cloud Storage data, with the Tensorflow job running in the Node, this account must have permissions to that data. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

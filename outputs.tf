@@ -15,21 +15,26 @@
  */
 
 output "network_endpoints" {
+  discription = "The network endpoints where TPU workers can be accessed and sent work. It is recommended that Tensorflow clients of the node reach out to the 0th entry in this map first"
   value = google_tpu_node.tpu.network_endpoints[0].ip_address
 }
 
 output "id" {
+  description = "GCP ID of the Cloud TPU POD resource"
   value = google_tpu_node.tpu.id
 }
 
 output "tpu_service_account" {
+  description = "The service account used to run the tensor flow services within the node. To share resources, including Google Cloud Storage data, with the Tensorflow job running in the Node, this account must have permissions to that data."
   value = google_tpu_node.tpu.service_account
 }
 
 output "tensorflow_versions" {
+  description = "All values of PyTorch and Tensorflow versions avaiable to accelerators"
   value = data.google_tpu_tensorflow_versions.available.versions
 }
 
 output "tpu_all_parameters" {
+  description = "All the parameters avaiable in the TPU POD resource"
   value = google_tpu_node.tpu
 }

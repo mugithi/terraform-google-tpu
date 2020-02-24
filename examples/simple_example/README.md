@@ -7,9 +7,9 @@ This example illustrates how to use the `tpu` module.
 
 | Name | Description |
 |------|-------------|
-| id |  |
+| id | GCP ID of the Cloud TPU POD resource |
 | network\_endpoints |  |
-| tpu\_service\_account |  |
+| tpu\_service\_account | The service account used to run the tensor flow services within the node. To share resources, including Google Cloud Storage data, with the Tensorflow job running in the Node, this account must have permissions to that data. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

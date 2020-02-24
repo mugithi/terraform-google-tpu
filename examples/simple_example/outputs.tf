@@ -15,14 +15,17 @@
  */
 
 output "network_endpoints" {
+  discription = "The network endpoints where TPU workers can be accessed and sent work. It is recommended that Tensorflow clients of the node reach out to the 0th entry in this map first"
   value = module.tpu.network_endpoints
 }
 
 output "id" {
+  description = "GCP ID of the Cloud TPU POD resource"
   value = module.tpu.id
 }
 
 output "tpu_service_account" {
+  description = "The service account used to run the tensor flow services within the node. To share resources, including Google Cloud Storage data, with the Tensorflow job running in the Node, this account must have permissions to that data."
   value = module.tpu.tpu_service_account
 }
 
