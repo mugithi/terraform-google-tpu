@@ -8,7 +8,7 @@ This example illustrates how to use the `tpu` module.
 | Name | Description |
 |------|-------------|
 | id | GCP ID of the Cloud TPU POD resource |
-| network\_endpoints |  |
+| network\_endpoints | The network endpoints where TPU workers can be accessed and sent work. It is recommended that Tensorflow clients of the node reach out to the 0th entry in this map first |
 | tpu\_service\_account | The service account used to run the tensor flow services within the node. To share resources, including Google Cloud Storage data, with the Tensorflow job running in the Node, this account must have permissions to that data. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

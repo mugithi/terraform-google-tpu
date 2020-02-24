@@ -15,7 +15,7 @@
  */
 
 output "network_endpoints" {
-  discription = "The network endpoints where TPU workers can be accessed and sent work. It is recommended that Tensorflow clients of the node reach out to the 0th entry in this map first"
+  description = "The network endpoints where TPU workers can be accessed and sent work. It is recommended that Tensorflow clients of the node reach out to the 0th entry in this map first"
   value = module.tpu.network_endpoints
 }
 
