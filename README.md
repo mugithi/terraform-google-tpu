@@ -67,7 +67,7 @@ The following dependencies must be available:
 A service account with the following roles must be used to provision
 the resources of this module:
 
-- Storage Admin: `roles/tpu.admin`
+- TPU Admin: `roles/tpu.admin`
 
 The [Project Factory module][project-factory-module] and the
 [IAM module][iam-module] may be used in combination to provision a
