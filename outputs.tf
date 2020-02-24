@@ -29,12 +29,22 @@ output "tpu_service_account" {
   value = google_tpu_node.tpu.service_account
 }
 
-output "tensorflow_versions" {
-  description = "All values of PyTorch and Tensorflow versions avaiable to accelerators"
-  value = data.google_tpu_tensorflow_versions.available.versions
+output "tpu_name" {
+  description = "Name of the Cloud TPU pod that is created"
+  value = google_tpu_node.tpu.name
+}
+
+output "tpu_tensorflow_version" {
+  description = "The version of tensorflow that is running in the Cloud TPU PODs"
+  value = google_tpu_node.tpu.tensorflow_version
 }
 
 output "tpu_all_parameters" {
   description = "All the parameters avaiable in the TPU POD resource"
   value = google_tpu_node.tpu
+}
+
+output "tensorflow_versions" {
+  description = "All values of PyTorch and Tensorflow versions avaiable to accelerators"
+  value = data.google_tpu_tensorflow_versions.available.versions
 }

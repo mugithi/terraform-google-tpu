@@ -19,7 +19,7 @@ module "tpu" {
   project_id       = "network-host-project-243718"
   zone             = "europe-west4-a"
   tpu_name         = "tpu_name_001"
-  accelerator_type = "v3-32"
+  accelerator_type = "v3-8"
   network          = "default"
   preemptible      = true
 }

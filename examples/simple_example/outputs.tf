@@ -29,3 +29,7 @@ output "tpu_service_account" {
   value = module.tpu.tpu_service_account
 }
 
+output "tpu_name" {
+  description = "Name of the Cloud TPU pod that is created"
+  value = module.tpu.tpu_name
+}
