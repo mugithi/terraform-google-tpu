@@ -4,7 +4,7 @@ This module was generated from [terraform-google-module-template](https://github
 
 The resources/services/activations/deletions that this module will create/trigger are:
 
-- Create a GCS bucket with the provided name
+- Create a Cloud TPU POD
 
 ## Usage
 
