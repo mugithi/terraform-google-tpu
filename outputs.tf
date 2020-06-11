@@ -43,8 +43,3 @@ output "tpu_all_parameters" {
   description = "All the parameters avaiable in the TPU POD resource"
   value = google_tpu_node.tpu
 }
-
-output "tensorflow_versions" {
-  description = "All values of PyTorch and Tensorflow versions avaiable to accelerators"
-  value = data.google_tpu_tensorflow_versions.available.versions
-}
