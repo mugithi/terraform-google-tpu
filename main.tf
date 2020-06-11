@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-data "google_tpu_tensorflow_versions" "available" {
-  zone = var.zone
-  project = var.project_id
-}
 
 resource "google_tpu_node" "tpu" {
   name    = var.tpu_name
